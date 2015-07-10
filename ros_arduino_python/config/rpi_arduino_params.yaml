@@ -1,0 +1,72 @@
+# For a direct USB cable connection, the port name is typically
+# /dev/ttyACM# where is # is a number such as 0, 1, 2, etc
+# For a wireless connection like XBee, the port is typically
+# /dev/ttyUSB# where # is a number such as 0, 1, 2, etc.
+
+port: /dev/ttyS0
+baud: 57600
+timeout: 0.1
+
+rate: 50
+sensorstate_rate: 10
+
+use_base_controller: True
+base_controller_rate: 10
+
+linear_scale: 10
+angular_scale: 90
+
+pan_min: 0
+pan_center: 90
+pan_max: 180
+tilt_min: 0
+tilt_center: 145
+tilt_max: 180
+
+# The arduino driver can be either:
+#     - Stock ROS Arduino Bridge (RAB) driver, or 
+#           The RAB driver is distributed with the ROS Arduino Bridge (RAB), supports specific hardware and capabilities, and a non-standard
+#           communication interface.  It is good for what is does but isn't particularly flexible.
+#     - PyMata driver
+#           The PyMata driver uses the Firmata firmware and the PyMata Python interface.  Firmata has been extended to support a RAB controller
+#           with the capabilities required by the BaseController, i.e., dual motor and encoder feedback.  Additionally, the RAB controller
+#           supports PID motor control.  While not completely generic, the RAB abstraction makes is possible to implement other vehicles 
+#           compatible with the BaseController by just changing the RAB controller.
+#           Additionally, the PyMata/Firmata interface gives generic access to all the capabilities of the Arduino board.
+arduino_driver: rab_driver
+
+# For a robot that uses base_footprint, change base_frame to base_footprint
+base_frame: base_link
+
+# === Robot drivetrain parameters
+wheel_diameter: 0.065
+wheel_track: 0.127
+encoder_resolution: 16
+gear_reduction: 1.0
+#motors_reversed: True
+
+# === PID parameters
+Kp: 10
+Kd: 12
+Ki: 0
+Ko: 50
+accel_limit: 1.0
+
+# === Sensor definitions.  Examples only - edit for your robot.
+#     Sensor type can be one of the follow (case sensitive!):
+#	  * Ping
+#	  * GP2D12
+#	  * Analog
+#	  * Digital
+#	  * PololuMotorCurrent
+#	  * PhidgetsVoltage
+#	  * PhidgetsCurrent (20 Amp, DC)
+
+
+
+sensors: {
+  #sonar_front_center:   {pin: 5, type: Ping, rate: 10},
+  #bump_front_sensor:    {pin: ?, type: Bump, rate: 10},
+  #bump_rear_sensor:     {pin: ?, type: Bump, rate: 10},
+  line_sensor:           {pins: [14,15,16,17,18,19], type: DigitalArray, rate: 10, direction: input, pullup: True}  
+}
