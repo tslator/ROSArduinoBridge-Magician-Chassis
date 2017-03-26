@@ -20,3 +20,6 @@ Future additions to this project will include:
 * using the ROS sensor/camera message to send images from the Raspberry Pi camera to the web page
 * a line sensor for line following.  Note: the ROS pub/sub model should make this an especially elegant solution
 * using OpenCV to perform image processing such as facial recognition, object tracking etc.
+
+# Pictures
+![alt text](https:/github.com/tslator/ROSArduinoBridge-Magician-Chassis/raw/master/src/images/001.jpg)
