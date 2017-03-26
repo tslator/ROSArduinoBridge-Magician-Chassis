@@ -22,4 +22,4 @@ Future additions to this project will include:
 * using OpenCV to perform image processing such as facial recognition, object tracking etc.
 
 # Pictures
-![alt text](https:/github.com/tslator/ROSArduinoBridge-Magician-Chassis/raw/master/src/images/001.jpg "Image 1")
+![alt text](https://github.com/tslator/ROSArduinoBridge-Magician-Chassis/blob/master/images/001.jpg "Image 1")
